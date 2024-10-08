@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- Animação -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> <!-- Animação -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Kanban</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav data-aos="fade-right" data-aos-delay="200">
+            <img src="https://static.vecteezy.com/system/resources/previews/019/897/563/non_2x/modern-real-estate-and-construction-logo-free-png.png"
+                alt="">
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Usuario</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Equipe</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fa-brands fa-docker"></i>
+                        <span>Reatorios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span>Configuracoes</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <div class="inner">
+                <section class="title-avatar" data-aos="fade-up" data-aos-delay="500">
+                    <div class="header">
+                        <h1>
+                            Minhas tarefas
+                            <i class="fa-solid fa-pen-fancy"></i>
+                        </h1>
+                        <button class="btn" onclick="abrirModal()">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </button>
+                    </div>
+                    <img src="https://avatars.githubusercontent.com/u/183320874?v=4" alt="">
+                </section>
+
+                <section class="filter" data-aos="fade-up" data-aos-delay="700">
+                    <button>
+                        <i class="fa-solid fa-filter"></i>
+                        <span>Filtrar</span>
+                    </button>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="buscar por tarefas, ou descricoes">
+                    </div>
+                </section>
+
+                <section class="box-tarefas" data-aos="fade-up" data-aos-delay="900">
+                    <div class="todo">
+                        <h2>A fazer</h2>
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p>
+                                Desafio todo dia praticar, desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span class="with-small-js">Treina-dev</span>
+                                <span class="with-small-js">Outras fontes</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p>
+                                Desafio todo dia praticar, desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span class="with-small-js">Treina-dev</span>
+                                <span class="with-small-js">Outras fontes</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p>
+                                Desafio todo dia praticar, desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span>Treina-dev</span>
+                                <span>Outras fontes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doing">
+                        <h2>Fazendo</h2>
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p>
+                                Desafio todo dia praticar, desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span>Treina-dev</span>
+                                <span>Outras fontes</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p>
+                                Desafio todo dia praticar, desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span>Treina-dev</span>
+                                <span>Outras fontes</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p>
+                                Desafio todo dia praticar, desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span>Treina-dev</span>
+                                <span>Outras fontes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="done">
+                        <h2>Feito</h2>
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p class="with-js">
+                                Desafio todo dia praticar, desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span>Treina-dev</span>
+                                <span>Outras fontes</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p class="with-js">
+                                Desafio todo dia praticar, desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span>Treina-dev</span>
+                                <span>Outras fontes</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Treinar HTML5</h3>
+                            <p class="with-js">
+                                Desafio todo dia praticar, desenvolvendo projetos, Desafio todo dia praticar,
+                                desenvolvendo projetos
+                            </p>
+                            <span class="data">20/10/2024</span>
+                            <div class="tags">
+                                <span>Treina-dev</span>
+                                <span>Outras fontes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </main>
+
+        <!-- MODAL -->
+        <div class="janela-modal" id="janela-modal">
+            <div class="modal">
+                <button class="fechar" id="fechar">X</button>
+                <form data-aos="fade-up" data-aos-delay="500">
+                    <h3>Nova tarefa</h3>
+
+                    <input type="text" placeholder="Titulo " id="descricao" />
+                    <input type="text" placeholder="Descricao " id="preco" />
+                    <input type="text" placeholder="Categoria " id="categoria" />
+
+                    <div class="btn-group">
+                        <button id="pendente">
+                            <i class="fa-regular fa-circle-up"></i>
+                            <span class="totipe">Pendente</span>
+                        </button>
+                        <button id="fazendo">
+                            <i class="fa-regular fa-circle-down"></i>
+                            <span class="totipe">Fazendo</span>
+                        </button>
+                        <button id="feito">
+                            <i class="fa-regular fa-circle-down"></i>
+                            <span class="totipe">Feito</span>
+                        </button>
+                    </div>
+                    <button id="cadastrar">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script defer src="./script.js"></script>
+</body>
+
+</html>

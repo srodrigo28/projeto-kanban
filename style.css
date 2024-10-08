@@ -1,0 +1,494 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialised;
+    -moz-osx-font-smoothing: grayscale;
+
+    list-style: none;
+    text-decoration: none;
+}
+:root {
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 600;
+    background-color: black;
+    /* background-color: #7c3AED; */
+}
+#app {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    min-height: 100vh;
+}
+.inner {
+    height: 100%;
+    background-color: #1d1d1d;
+    border-top-left-radius: 3.2rem;
+
+    padding: 4rem 3rem;
+}
+.header {
+    gap: 10px;
+    display: flex;
+}
+.header button {
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+
+    transition: .9s;
+}
+.header button:hover {
+    transform: scale(1.2) rotate(360deg);
+}
+main {
+    padding-top: .8rem;
+}
+nav {
+    padding: 3rem 3rem;
+    min-height: 7rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+nav img {
+    width: 7rem;
+}
+ul {
+    min-height: 10rem;
+
+    gap: 3rem;
+    display: grid;
+    margin-top: 4rem;
+}
+li a {
+    color: #fff;
+    font-weight: 600;
+
+    gap: 1.4rem;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+
+    transition: .7s;
+}
+li a:hover,
+li a:active {
+    padding: 10px;
+    border-radius: 7px;
+    background-color: #777;
+    transform: scale(1.07) scaleX(5px);
+}
+/* fim do nav */
+.title-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title-avatar img {
+    width: 7rem;
+    border-radius: 50%;
+}
+.title-avatar h1 {
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.filter {
+    margin-top: 2rem;
+
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+}
+.filter button {
+    padding: 1.2rem 2.5rem;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    background-color: black;
+
+    gap: 1.3rem;
+    display: flex;
+}
+.filter span {
+    font-weight: 500;
+    letter-spacing: .12rem;
+    font-size: 1.3rem;
+}
+.input-wrapper {
+    width: 30%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #777;
+
+    display: flex;
+}
+.input-wrapper input {
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding-left: 10px;
+    transition: .9s;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: .2rem;
+}
+.input-wrapper,
+input:focus,
+input {
+    width: 100%;
+}
+.input-wrapper:has(:focus) {
+    border: 3px solid #000;
+}
+/* box tarefas */
+.box-tarefas {
+    margin-top: 1.6rem;
+    gap: 1rem;
+    display: flex;
+}
+.box-tarefas>* {
+    flex: 1;
+    padding: 2.5rem;
+    background-color: #777;
+
+    border-radius: 1rem;
+}
+.box-tarefas h2 {
+    font-size: 2rem;
+    color: #1d1d1d;
+    padding: 2rem;
+}
+.card {
+    margin-bottom: 10px;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+.card h3 {
+    color: #777;
+    padding-bottom: .8rem;
+}
+.card p {
+    font-size: 1.5rem;
+    color: #1d1d1d;
+    font-weight: 600;
+
+    padding-bottom: 1rem;
+}
+.card .data {
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: .2rem;
+    float: right;
+    border-radius: 3px;
+    padding: .2rem .8rem;
+    background-color: #1d1d1d;
+    margin-bottom: 1rem;
+}
+.tags {
+    clear: both;
+    margin-top: 1rem;
+    color: #1d1d1d;
+
+    gap: .8rem;
+    display: flex;
+    align-items: center;
+}
+.tags span {
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: .2rem;
+    float: right;
+    border-radius: 3px;
+    padding: .5rem .8rem;
+    background-color: #1d1d1d;
+    margin-bottom: 1rem;
+}
+/** MODAL **/
+.janela-modal {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #00000090;
+}
+.modal {
+    position: relative;
+    width: 40%;
+    background-color: #1d1d1d;
+    border-radius: 10px;
+    backdrop-filter: blue(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+}
+.fechar {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+.janela-modal.abrir {
+    display: flex;
+}
+.abrir .modal {
+    /* animation: abrirModal 0.5s ease-in-out; */
+    animation: abrirModal 0.9s;
+}
+@keyframes abrirModal {
+    from {
+        opacity: 0;
+        transform: translate3d(0px, 2000px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+/* MODAL FORM */
+h3 {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+#fechar {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    color: #777;
+    background-color: transparent;
+    border: none;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .9s;
+}
+#fechar:hover {
+    color: red;
+    border: 1px solid red;
+    background-color: #000;
+    transform: rotate(180deg) scale(1.07);
+}
+form {
+    position: relative;
+    padding: 20px;
+    width: 350px;
+    border-radius: 10px;
+    background-color: #1d1d1d;
+
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+form button{
+    margin-top: 10px;
+    position: relative;
+}
+form input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #fff;
+    background-color: #000;
+    border-radius: 7px;
+}
+.btn-group {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-group button {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    
+    border-radius: 7px;
+    background-color: #000;
+
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: .6;
+    transition: .9s;
+}
+.btn-group button:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+#pendente i {
+    font-size: 1.5em;
+    color: red;
+}
+#feito i {
+    font-size: 1.5em;
+    color: green;
+}
+#fazendo i {
+    font-size: 1.5em;
+    color: yellow;
+}
+#cadastrar {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: green;
+    border-radius: 7px;
+    transition: .9s;
+    opacity: .8;
+}
+#cadastrar:hover {
+    opacity: 1;
+    color: #fff;
+    font-weight: 500;
+}
+/** RESPONSIVO */
+@media screen and (max-width: 768px) {
+    nav img {
+        width: 50px;
+    }
+
+    nav {
+        padding: 3rem 3rem;
+        width: 80px;
+    }
+
+    nav ul li a span {
+        display: none;
+    }
+
+    nav ul li a i {
+        font-size: 25px;
+    }
+
+    .title-avatar {
+        width: 80%;
+    }
+
+    .filter button {
+        padding: 1.5rem 2rem;
+    }
+
+    .filter span {
+        display: none;
+    }
+
+    .input-wrapper {
+        width: 70%;
+    }
+
+    .box-tarefas {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 500px) {
+    .inner {
+        padding: 5px;
+    }
+
+    nav img {
+        width: 30px;
+    }
+
+    nav {
+        padding: 3rem 3rem;
+        width: 60px;
+    }
+
+    nav ul li a span {
+        display: none;
+    }
+
+    nav ul li a i {
+        font-size: 16px;
+    }
+
+    .title-avatar {
+        width: 85%;
+    }
+
+    .filter button {
+        padding: 1.5rem 2rem;
+    }
+
+    .filter span {
+        display: none;
+    }
+
+    .input-wrapper {
+        width: 72%;
+    }
+
+    .box-tarefas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+
+    .card {
+        width: 90%;
+    }
+    .tags {
+        gap: 10px;
+
+    }
+    .tags span {
+        margin: 5px;
+    }
+    /* MODA RESPONSIVO */
+    .janela-modal{
+        padding-top: 90px;
+        align-items: start;
+    }
+    form{
+        width: 350px;
+    }
+    .modal{
+        margin-right: 20px;
+        width: 80%;
+    }
+}
